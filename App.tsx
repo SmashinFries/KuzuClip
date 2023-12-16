@@ -1,17 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import { InferenceSession } from 'onnxruntime-react-native';
+import { Alert, Button, StyleSheet, Text, View } from 'react-native';
+import { InferenceSession, Tensor } from 'onnxruntime-react-native';
 import { useState } from 'react';
+import { Asset } from 'expo-asset';
 
 export default function App() {
   const [encoder, setEncoder] = useState<InferenceSession>();
   const [decoder, setDecoder] = useState<InferenceSession>();
 
   const loadModels = async () => {
-    const e = await InferenceSession.create('./models/encoder.onnx');
-    const d = await InferenceSession.create('./models/decoder.onnx');
-    setEncoder(e);
-    setDecoder(d);
+    const assets = await Asset.loadAsync([require('./models/encoder.onnx'), require('./models/decoder.onnx')]);
+    const eUri = assets[0].localUri;
+    const dUri = assets[1].localUri;
+    if (!eUri || !dUri) {
+      Alert.alert('Error', 'Failed to load models');
+    } else {
+      const e = await InferenceSession.create(eUri);
+      const d = await InferenceSession.create(dUri);
+      setEncoder(e);
+      setDecoder(d);
+      console.log('Models loaded');
+      console.log('Encoder input names: ', e.inputNames);
+      console.log('Encoder output names: ', e.outputNames);
+      console.log('Decoder input names: ', d.inputNames);
+      console.log('Decoder output names: ', d.outputNames);
+    }
   };
 
   return (
