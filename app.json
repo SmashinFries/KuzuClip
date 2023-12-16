@@ -26,6 +26,13 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["onnxruntime-react-native"]
+    "plugins": [
+      "onnxruntime-react-native"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "0fb15f5c-cfe8-4bb9-912b-3613c8cd8f9b"
+      }
+    }
   }
 }
