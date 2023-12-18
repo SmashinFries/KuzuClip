@@ -4,10 +4,10 @@
     "slug": "KuzuClip",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "/Users/kuzumac/Documents/Github/KuzuClip/assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "/Users/kuzumac/Documents/Github/KuzuClip/assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -15,11 +15,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.kuzutech.KuzuClip"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "/Users/kuzumac/Documents/Github/KuzuClip/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.kuzutech.KuzuClip"
