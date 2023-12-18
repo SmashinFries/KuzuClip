@@ -16,10 +16,10 @@ const useSAM = () => {
 
     };
 
-    useEffect(() => {
-        if (!encoder && !decoder) {
-            InferenceSession.create('models/encoder.onnx').then((encoder) => setEncoder(encoder));
-            InferenceSession.create('models/decoder.onnx').then((decoder) => setDecoder(decoder));
-        }
-    },[])
+    // useEffect(() => {
+    //     if (!encoder && !decoder) {
+    //         InferenceSession.create('models/encoder.onnx').then((encoder) => setEncoder(encoder));
+    //         InferenceSession.create('models/decoder.onnx').then((decoder) => setDecoder(decoder));
+    //     }
+    // },[])
 };
